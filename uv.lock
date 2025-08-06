@@ -68,6 +68,15 @@ wheels = [
 ]
 
 [[package]]
+name = "calver"
+version = "2025.4.17"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/4f/1e/6cdde2a9cbd1bd2fad6fab0d005b1c10b4161823656ddb19ccc3adcbd5af/calver-2025.4.17.tar.gz", hash = "sha256:460702737d620f5c3d4175450485180a1b7f7a422c5db0e6af3e655c7395ec7e", size = 8082, upload-time = "2025-04-17T13:44:57.722Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/4b/68/70db15cada0c4c3a17c6e44d906e13e32ee7467b133a04bc555d91aded16/calver-2025.4.17-py3-none-any.whl", hash = "sha256:82f0efe7f71c28167af5ed9712e0d9d6272eb0817acbbf852b8b2404666a0cf2", size = 7373, upload-time = "2025-04-17T13:44:56.515Z" },
+]
+
+[[package]]
 name = "certifi"
 version = "2025.8.3"
 source = { registry = "https://pypi.org/simple" }
@@ -311,6 +320,7 @@ dependencies = [
 
 [package.dev-dependencies]
 build = [
+    { name = "calver" },
     { name = "flit-core" },
     { name = "hatchling" },
     { name = "setuptools" },
@@ -331,6 +341,7 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 build = [
+    { name = "calver" },
     { name = "flit-core", specifier = ">=3.3" },
     { name = "hatchling", specifier = ">=1.27.0" },
     { name = "setuptools", specifier = ">=40.8.0" },

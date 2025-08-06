@@ -31,6 +31,10 @@ authlib==1.6.1 \
     --hash=sha256:4dffdbb1460ba6ec8c17981a4c67af7d8af131231b5a36a88a1e8c80c111cdfd \
     --hash=sha256:e9d2031c34c6309373ab845afc24168fe9e93dc52d252631f52642f21f5ed06e
     # via fastmcp
+calver==2025.4.17 \
+    --hash=sha256:460702737d620f5c3d4175450485180a1b7f7a422c5db0e6af3e655c7395ec7e \
+    --hash=sha256:82f0efe7f71c28167af5ed9712e0d9d6272eb0817acbbf852b8b2404666a0cf2
+    # via foreman-mcp-server (pyproject.toml:build)
 certifi==2025.8.3 \
     --hash=sha256:e564105f78ded564e3ae7c923924435e1daa7463faeab5bb932bc53ffae63407 \
     --hash=sha256:f6c12493cfb1b06ba2ff328595af9350c65d6644968e5d3a2ffd78699af217a5
