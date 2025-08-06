@@ -11,7 +11,9 @@ COPY --chown=1001:0 requirements-build.txt pyproject.toml ./
 COPY --chown=1001:0 src src
 COPY --chown=1001:0 README.md .
 
-RUN pip install .
+RUN source /tmp/hermeto.env && \
+    pip install -r requirements-build.txt && \
+    pip install .
 
 LABEL url="https://www.redhat.com"
 LABEL name="foreman-mcp-server" \
