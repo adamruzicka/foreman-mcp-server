@@ -25,6 +25,7 @@ build = [
     # Hermetic build transitive deps
     "setuptools>=40.8.0",
     "flit_core>=3.3",
+    "setuptools-scm>=8.0",
 ]
 
 [project.scripts]
