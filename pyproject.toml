@@ -27,6 +27,7 @@ build = [
     "flit_core>=3.3",
     "setuptools-scm>=8.0",
     "calver",
+    "uv-dynamic-versioning>=0.7.0",
 ]
 
 [project.scripts]
