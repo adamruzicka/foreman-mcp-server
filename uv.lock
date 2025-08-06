@@ -290,6 +290,15 @@ wheels = [
 ]
 
 [[package]]
+name = "flit-core"
+version = "3.12.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/69/59/b6fc2188dfc7ea4f936cd12b49d707f66a1cb7a1d2c16172963534db741b/flit_core-3.12.0.tar.gz", hash = "sha256:18f63100d6f94385c6ed57a72073443e1a71a4acb4339491615d0f16d6ff01b2", size = 53690, upload-time = "2025-03-25T08:03:23.969Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/f2/65/b6ba90634c984a4fcc02c7e3afe523fef500c4980fec67cc27536ee50acf/flit_core-3.12.0-py3-none-any.whl", hash = "sha256:e7a0304069ea895172e3c7bb703292e992c5d1555dd1233ab7b5621b5b69e62c", size = 45594, upload-time = "2025-03-25T08:03:20.772Z" },
+]
+
+[[package]]
 name = "foreman-mcp-server"
 version = "0.1.0"
 source = { editable = "." }
@@ -302,6 +311,7 @@ dependencies = [
 
 [package.dev-dependencies]
 build = [
+    { name = "flit-core" },
     { name = "hatchling" },
     { name = "setuptools" },
 ]
@@ -320,6 +330,7 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 build = [
+    { name = "flit-core", specifier = ">=3.3" },
     { name = "hatchling", specifier = ">=1.27.0" },
     { name = "setuptools", specifier = ">=40.8.0" },
 ]
