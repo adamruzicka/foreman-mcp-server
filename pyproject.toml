@@ -28,6 +28,9 @@ build = [
     "setuptools-scm>=8.0",
     "calver",
     "uv-dynamic-versioning>=0.7.0",
+    "hatch-vcs",
+    "hatch-fancy-pypi-readme>=23.2.0",
+    "mypy==1.4.1",
 ]
 
 [project.scripts]
