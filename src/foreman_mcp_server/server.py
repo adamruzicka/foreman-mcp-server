@@ -96,6 +96,13 @@ def assert_server_mode(foreman_username: str, foreman_password: str, transport: 
     help="Path to CA certificate bundle file for SSL verification. If not specified, ./ca.pem will be used if it exists, otherwise system default CA bundle is used.",
     envvar="FOREMAN_CA_BUNDLE",
 )
+@click.option(
+    "--allow-write-access/--no-allow-write-access",
+    default=False,
+    is_flag=True,
+    help="Allow write access to Foreman instance. By default, only read-only operations are allowed.",
+    show_default=True,
+)
 @click.pass_context
 def main(
     ctx: click.Context,
@@ -108,6 +115,7 @@ def main(
     transport: str,
     verify_ssl: bool,
     ca_bundle: str,
+    allow_write_access: bool,
 ) -> int:
     """Run the Foreman MCP server."""
 
@@ -143,7 +151,7 @@ def main(
             password=foreman_password,
             verify_ssl=verify_ssl,
         )
-    register_tools(mcp, foreman_api, get_context)
+    register_tools(mcp, foreman_api, get_context, allow_write_access)
     register_resources(mcp, foreman_api, get_context)
     register_prompts(mcp, foreman_api, get_context)
 

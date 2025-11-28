@@ -14,7 +14,7 @@ from ..utils.utils import (
 
 
 # TODO: Probably split it into multiple tools (read-only, destructive, etc)
-def register_foreman_api_methods(mcp, foreman_api, get_context):
+def register_foreman_api_methods(mcp, foreman_api, get_context, allow_write_access):
     @mcp.tool(
         description="Calls GET action on Foreman API.",
         tags=("foreman", "api", "get", "resource", "remote"),
@@ -45,6 +45,33 @@ def register_foreman_api_methods(mcp, foreman_api, get_context):
             return format_success_response(resource, action, response)
         except Exception as e:
             return format_failure_response(resource, action, e)
+
+    if allow_write_access:
+        @mcp.tool(
+            description="Calls any action on Foreman API.",
+            tags=("foreman", "api", "resource", "remote"),
+            annotations={
+                "title": "Call any Foreman API Action",
+                "readOnlyHint": True,
+                "destructiveHint": False,
+                "idempotentHint": False,
+                "openWorldHint": False,
+            },
+        )
+        async def call_foreman_api_get(
+            resource: str, action: str, params: dict
+        ) -> ToolResult:
+            try:
+                api = foreman_api or get_foreman_api(get_context)
+                await assert_resource(
+                    resource,
+                    {"name": "Resource", "list_name": "resources", "type": "api"},
+                    get_context,
+                )
+                response = api.call(resource, action, params, mcp_info_headers(get_context))
+                return format_success_response(resource, action, response)
+            except Exception as e:
+                return format_failure_response(resource, action, e)
 
 
 def format_success_response(resource: str, action: str, response: str) -> ToolResult:
